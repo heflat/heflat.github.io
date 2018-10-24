@@ -88,7 +88,7 @@
 <meta property="og:description" content="Git 命令记录">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006mKIDbly1ftfj5e2fv9j30xc0hi0tb.jpg">
-<meta property="og:updated_time" content="2018-07-18T16:00:00.000Z">
+<meta property="og:updated_time" content="2018-10-23T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 命令">
 <meta name="twitter:description" content="Git 命令记录">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-19T00:00:00+08:00">
-                2018-07-19
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-24T00:00:00+08:00">
+                2018-10-24
               </time>
             
           </span>
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  915
+                  1,547
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  7
                 </span>
               
             </div>
@@ -414,47 +414,175 @@
 </blockquote>
 <a id="more"></a>
 <hr>
-<p><strong>环境：操作系统-Windows 10；Git 版本-2.16.2</strong></p>
+<p><strong>博文（测试）环境：<code>Windows 10</code> <code>Git v2.16.2</code></strong></p>
 <p><strong>说明</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">remote</span>&gt;</span>：远程仓库名称，默认为 origin</span><br><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>：远程仓库地址</span><br><span class="line"><span class="tag">&lt;<span class="name">branch</span>&gt;</span>：分支名称</span><br><span class="line"><span class="tag">&lt;<span class="name">master-branch</span>&gt;</span>：主分支名称</span><br><span class="line"><span class="tag">&lt;<span class="name">other-branch</span>&gt;</span>：其它分支名称</span><br><span class="line"><span class="tag">&lt;<span class="name">tag</span>&gt;</span>：标签名称</span><br><span class="line"><span class="tag">&lt;<span class="name">new-alias</span>&gt;</span>：新的别名名称</span><br><span class="line"><span class="tag">&lt;<span class="name">origin</span>&gt;</span>：新的别名原始名称</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;&gt;</span> 表示必填</span><br><span class="line">[] 表示选填</span><br></pre></td></tr></table></figure>
+<p><strong>基本配置</strong></p>
 <ul>
-<li><p><code>&quot;&quot;</code> 必填项</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"username"</span></span><br><span class="line">[</span><br><span class="line">    git<span class="built_in"> config </span>--global user.name <span class="string">"heflat"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<li><p>添加 / 修改用户名</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"username"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 例</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"heflat"</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>&lt;&gt;</code> 必填项，<code>[]</code> 可选项</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">&lt;url</span>&gt; [alias]</span><br><span class="line">[</span><br><span class="line">    <span class="comment"># 克隆远程仓库项目</span></span><br><span class="line">    git <span class="keyword">clone</span> <span class="title">https</span>://github.com/heflat/heflat-blog-example.git</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 克隆远程仓库项目并起别名</span></span><br><span class="line">    git <span class="keyword">clone</span> <span class="title">https</span>://github.com/heflat/heflat-blog-example.git example</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<li><p>添加 / 修改邮箱账号</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"email"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 例</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"h@heflat.com"</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p><strong>用户信息</strong></p>
-<ul>
 <li><p>查看用户名</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>user.name</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>查看邮箱</p>
+<li><p>查看邮箱账号</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>user.email</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加 / 修改用户名</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"username"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加 / 修改邮箱</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>SSH</strong></p>
-<ul>
-<li><p>生成 <code>SSH</code></p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看 <code>SSH</code>（按回车键，直到生成 <code>SSH</code>）</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure>
+<li><p>配置 <code>SSH</code>（直接按回车，直到完成）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 生成</span></span></span><br><span class="line">ssh-keygen -t rsa -C "email"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 查看</span></span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>初始化</strong></p>
 <ul>
-<li><p>初始化本地项目</p>
+<li><p>初始化本地仓库</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>克隆现有项目</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">&lt;url</span>&gt; [alias]</span><br></pre></td></tr></table></figure>
+</ul>
+<p><strong>远程仓库</strong></p>
+<ul>
+<li><p>关联远程仓库</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="keyword">add</span><span class="bash"> &lt;remote&gt; &lt;url&gt;</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment">## 例</span></span></span><br><span class="line"><span class="bash">git remote add origin https://github.com/heflat/heflat-blog-example.git</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程仓库关联信息</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git remote</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">git remote -v</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>克隆远程仓库</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">&lt;url</span>&gt; [alias]</span><br><span class="line"></span><br><span class="line"><span class="comment">## 例</span></span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/heflat/heflat-blog-example.git</span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/heflat/heflat-blog-example.git example</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>操作流程</strong></p>
+<ul>
+<li><p>更新 / 拉取项目</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull <span class="params">&lt;remote&gt;</span> <span class="params">&lt;branch&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">## 例</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看状态</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git status</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加到暂存区</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交到本地仓库</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">"comment"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送到远程仓库</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>&lt;remote&gt; &lt;<span class="keyword">branch&gt;</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">## </span>例</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>暂存区</strong></p>
+<ul>
+<li><p>添加文件到暂存区</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 添加所有文件到暂存区</span></span><br><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment">## 添加指定文件到暂存区</span></span></span><br><span class="line"><span class="bash">git add &lt;file1&gt; [file2] [file3] ...</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment">## 添加文件后缀为 `.java` 的所有文件</span></span></span><br><span class="line"><span class="bash">git add *.java</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment">## 例（多个文件使用空格分隔）</span></span></span><br><span class="line"><span class="bash">git add heflat.txt</span></span><br><span class="line"><span class="bash">git add heflat.txt heflat2.txt</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从暂存区撤销指定文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> &lt;file1&gt; [file2] [file3] ...</span><br><span class="line"></span><br><span class="line">## 例（多个文件使用空格分隔）</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> heflat.txt</span><br><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> heflat.txt heflat2.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从暂存区撤销所有文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>提交到本地仓库（需要先添加到暂存区）</strong></p>
+<ul>
+<li><p>提交到本地仓库</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">"comment"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交到本地仓库，跳过暂存区（新创建文件无效）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> -a -m <span class="string">"commit"</span></span><br><span class="line">git <span class="keyword">commit</span> -am <span class="string">"commit"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改写提交（修改最近一次提交的注释和内容）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>分支</strong></p>
+<ul>
+<li><p>新建分支</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">branch </span>&lt;<span class="keyword">branch&gt;</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">## </span>例</span><br><span class="line">git <span class="keyword">branch </span>dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建并切换到该分支</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -<span class="keyword">b </span>&lt;<span class="keyword">branch&gt;</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">## </span>例</span><br><span class="line">git checkout -<span class="keyword">b </span>dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看分支</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git branch</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 例</span></span></span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并分支</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 切换分支</span></span></span><br><span class="line">git checkout &lt;master-branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 合并分支</span></span></span><br><span class="line">git merge &lt;other-branch&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除分支</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-d &lt;<span class="keyword">branch&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉取分支</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git pull <span class="params">&lt;remote&gt;</span> <span class="params">&lt;branch&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">## 例</span></span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送分支</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>&lt;remote&gt; &lt;<span class="keyword">branch&gt;</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">## </span>例</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程仓库分支</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除远程仓库分支</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">push</span> &lt;remote&gt; --<span class="keyword">delete</span> &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">## 例</span></span><br><span class="line">git <span class="keyword">push</span> origin --<span class="keyword">delete</span> dev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>标签</strong></p>
+<ul>
+<li><p>新建标签</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">&lt;tag</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建附注标签（推荐，比直接新建标签多一些描述信息）</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> <span class="tag">&lt;tag&gt;</span> -m <span class="string">"comment"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 例</span></span><br><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> v1.<span class="number">0</span> -m <span class="string">"v1.0"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指定 <code>commit id</code> 新建附注标签</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> <span class="tag">&lt;tag&gt;</span> <span class="tag">&lt;commit&gt;</span> -m <span class="string">"comment"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 例（commit id 可以只写前面几位，只要不重复就可以）</span></span><br><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> v1.<span class="number">0</span> ead37390d2e5ae3a9480e3c266ba943b97b5e15d -m <span class="string">"v1.0"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看标签</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除标签</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-d</span> <span class="tag">&lt;tag&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拉取所有标签</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote&gt; <span class="comment">--tags</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 例</span></span><br><span class="line">git fetch origin <span class="comment">--tags</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送指定标签</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>&lt;remote&gt; &lt;tag&gt;</span><br><span class="line"></span><br><span class="line">## 例</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>origin <span class="built_in">v1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程仓库标签</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">ls</span>-remote --<span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除远程仓库指定标签</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote&gt; <span class="symbol">:refs/tags/&lt;tag&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 例</span></span><br><span class="line">git push origin <span class="symbol">:refs/tags/v1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>撤销（谨慎操作）</strong></p>
+<ul>
+<li><p>撤销文件的修改 <strong>（谨慎操作）</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">git</span> <span class="selector-tag">checkout</span> <span class="selector-tag">--</span> &lt;<span class="selector-tag">file</span>&gt; <span class="selector-attr">[file2]</span> <span class="selector-attr">[file3]</span> ...</span><br><span class="line"></span><br><span class="line">## 例</span><br><span class="line"><span class="selector-tag">git</span> <span class="selector-tag">checkout</span> <span class="selector-tag">--</span> <span class="selector-tag">heflat</span><span class="selector-class">.txt</span></span><br><span class="line"><span class="selector-tag">git</span> <span class="selector-tag">checkout</span> <span class="selector-tag">--</span> <span class="selector-tag">heflat</span><span class="selector-class">.txt</span> <span class="selector-tag">heflat2</span><span class="selector-class">.txt</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销所有文件的修改 <strong>（谨慎操作）</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="comment">-- .</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>版本回退 / 前进</strong></p>
+<ul>
+<li><p>查看所有分支的所有操作（<code>commit id</code>、<code>comment</code>、操作动作）</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git reflog</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回退 / 前进到指定版本</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard &lt;HEAD / commit&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回退版本</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">## `HEAD` 表示当前版本，`^` 表示上一版本，`^^` 表示上上一版本，以此类举</span><br><span class="line">## `HEAD` 表示当前版本，`~<span class="number">1</span>` 表示上一版本，`~<span class="number">2</span>` 表示上上一版本，以此类举</span><br><span class="line"></span><br><span class="line">## 回退到上一版本（如果出现 `More?`，将 `HEAD^` 使用 <span class="string">""</span> 包裹起来）</span><br><span class="line">git reset --hard HEAD^ （git reset --hard <span class="string">"HEAD^"</span>）</span><br><span class="line"></span><br><span class="line">## 回退到上一版本</span><br><span class="line">git reset --hard HEAD~<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回退到指定版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 查看要回退版本 commit id</span></span></span><br><span class="line">git reflog</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 回退到 commit id 对应的版本（commit id 可以只写前面几位，只要不重复就可以）</span></span></span><br><span class="line">git reset --hard ead37390d2e5ae3a9480e3c266ba943b97b5e15d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>前进版本（回退版本之后，要回到最新版本）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 查看最新版本 commit id</span></span></span><br><span class="line">git reflog</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 前进到 commit id 对应的版本（commit id 可以只写前面几位，只要不重复就可以）</span></span></span><br><span class="line">git reset --hard ead37390d2e5ae3a9480e3c266ba943b97b5e15d</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>查看状态</strong></p>
@@ -463,7 +591,7 @@
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git status</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看文件状态简览</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git status -s</span><br><span class="line">[</span><br><span class="line">    `??` 新添加的未跟踪文件</span><br><span class="line">    `A ` 新添加到暂存区中的文件</span><br><span class="line">    `M ` 该文件被修改了并放入了暂存区</span><br><span class="line">    ` M` 该文件被修改了但是还没放入暂存区</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git status -s</span><br><span class="line"></span><br><span class="line">## 说明</span><br><span class="line">`??` 新添加的未跟踪文件</span><br><span class="line">`A ` 新添加到暂存区中的文件</span><br><span class="line">`M ` 该文件被修改了并放入了暂存区</span><br><span class="line">` M` 该文件被修改了但是还没放入暂存区</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>查看历史</strong></p>
@@ -474,127 +602,31 @@
 <li><p>显示每次提交的详细信息</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">--stat</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>显示每次提交的内容差异</p>
+<li><p>显示每次提交的文件内容差异</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -p</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>显示最近两次提交信息（以此类举）</p>
+<li><p>显示最近 <code>2</code> 次提交信息（以此类举）</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -<span class="number">2</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>暂存区</strong></p>
-<ul>
-<li><p>添加所有文件到暂存区</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加文件到暂存区</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> &lt;<span class="built_in">file</span>-name1&gt; [<span class="built_in">file</span>-name2] [<span class="built_in">file</span>-name3] ...</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加 <code>.java</code> 后缀文件到暂存区</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> *.java</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>取消暂存区的文件</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span> [<span class="keyword">file</span>]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>撤销操作</strong></p>
-<ul>
-<li><p>撤销对文件的修改（谨慎操作）</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;<span class="keyword">file</span>-<span class="keyword">name</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>撤销对所有文件的修改（谨慎操作）</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="comment">-- .</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>提交到本地仓库</strong></p>
-<ul>
-<li><p>提交到本地仓库</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">"comment"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提交到本地仓库，覆盖原上一次的提交信息 （自上一次提交以来还未做任何修改 ）</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>分支</strong></p>
-<ul>
-<li><p>查看分支</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git branch</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建分支</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>&lt;<span class="keyword">branch&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建分支并切换到该分支</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -<span class="selector-tag">b</span> &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合并其它分支到主分支（合并前先切换分支到主分支）</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">merge</span> &lt;other-branch-<span class="keyword">name</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除分支</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看远程仓库分支</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送分支到远程仓库</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote-<span class="built_in">name</span>&gt; &lt;branch-<span class="built_in">name</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除远程仓库分支</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push <span class="symbol">&lt;remote-name&gt;</span> --<span class="keyword">delete</span> <span class="symbol">&lt;branch-name&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>标签</strong></p>
-<ul>
-<li><p>查看标签</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看标签信息</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">show</span> &lt;tag-<span class="keyword">name</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建轻量标签</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">&lt;tag-name</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建附注标签（推荐）</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> <span class="tag">&lt;tag-name&gt;</span> -m <span class="string">"comment"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>指定 <code>commit</code> 创建附注标签</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> <span class="tag">&lt;tag-name&gt;</span> <span class="tag">&lt;commit&gt;</span> -m <span class="string">"comment"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除标签</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-d</span> <span class="tag">&lt;tag-name&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看远程仓库标签</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">ls</span>-remote --<span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新远程仓库标签</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote-<span class="built_in">name</span>&gt; <span class="comment">--tags</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送标签到远程仓库</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote-<span class="built_in">name</span>&gt; &lt;tag-<span class="built_in">name</span>&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送所有标签到远程仓库（未推送过的标签）</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote-<span class="built_in">name</span>&gt; <span class="comment">--tags</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除远程仓库标签</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote-name&gt; <span class="symbol">:refs/tags/&lt;tag-name&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>别名</strong></p>
 <ul>
-<li><p>配置别名</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global alias.&lt;new-alias&gt; &lt;origin&gt;</span><br><span class="line">[</span><br><span class="line">    # `git status` 配置别名为 `git st`</span><br><span class="line">    git<span class="built_in"> config </span>--global alias.st status</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<li><p>添加别名</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global alias.&lt;new-alias&gt; &lt;origin&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 例（`git status` 与 `git st` 等价）</span></span><br><span class="line">git<span class="built_in"> config </span>--global alias.st status</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong>Git</strong></p>
+<p><strong>Git 设置相关</strong></p>
 <ul>
-<li><p>查看 <code>Git</code> 版本</p>
+<li><p>查看当前版本</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">version</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>查看所有配置文件信息</p>
+<li><p>查看所有配置列表</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--list</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>查看执行 <code>key</code> 的配置信息</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>&lt;key&gt;</span><br><span class="line">[</span><br><span class="line">    # 查看用户名</span><br><span class="line">    git<span class="built_in"> config </span>user.name</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<li><p>根据 <code>key</code> 查询 <code>value</code></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>&lt;key&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 例（查看用户名）</span></span><br><span class="line">git<span class="built_in"> config </span>user.name</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>查看 <code>Git</code> 配置文件（用户名、别名等信息都可以直接在该文件中配置）</p>
+<li><p>查看 <code>Git</code> 配置文件信息</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="string">/.gitconfig</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>获取帮助</p>
